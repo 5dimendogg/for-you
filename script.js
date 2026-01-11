@@ -89,11 +89,15 @@ bgInput.addEventListener("change", () => {
 function updateCountdown() {
     if (!targetTime) return;
 
-    const now = Date.now();
-    const diff = targetTime - now;
-    if (diff <= 0) {
-        countdownTitle.textContent = "纪念日就是今天！💖";
-        return;
+    const nowDate = new Date();
+    const isBirthday = 
+        nowDate.getMonth() === 1 &&
+        nowDate.getDate() === 7;
+
+    if (isBirthday) {
+        eventTitle.textContent = "宝宝生日快乐 🎂❤️";
+    } else {
+        eventTitle.textContent = "距离宝宝20岁还有"；
     }
 
     const d = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -101,7 +105,6 @@ function updateCountdown() {
     const m = Math.floor((diff / (1000 * 60)) % 60);
     const s = Math.floor((diff / 1000) % 60);
 
-    countdownTitle.textContent = "距离我们的纪念日还有"
     flip(cDays, d);
     flip(cHours, h);
     flip(cMinutes, m);
@@ -152,3 +155,4 @@ setInterval(() => {
     updateCountdown();
     updatePassedTime();
 }, 1000);
+
