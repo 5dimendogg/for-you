@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>For you❤️</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="background"></div>
+        <input type="file" id="bgInput" accept="image/*" />
+
+    <div class="container">
+        <input
+            type="text"
+            id="eventInput"
+            placeholder="输入重要的日子，比如你的生日0207❤️❄"
+        />
+
+
+        <div class="countdown">
+            <div class="time">
+                <span id="cDays">00</span>
+                <p>天</p>
+            </div>
+            <div class="time">
+                <span id="cHours">00</span>
+                <p>小时</p>
+            </div>
+            <div class="time">
+                <span id="cMinutes">00</span>
+                <p>分钟</p>
+            </div>
+            <div class="time">
+                <span id="cSeconds">00</span>
+                <p>秒</p>
+            </div>
+        </div>
+
+        <input type="text" id="passedInput" placeholder="比如：我们在一起" />
+
+        <h2 id="countdownTitle"></h2>
+        <h2 id="passedTitle"></h2>
+        <div class="countdown">
+            <div class="time">
+                <span id="pDays">00</span>
+                <p>天</p>
+            </div>
+            <div class="time">
+                <span id="pHours">00</span>
+                <p>小时</p>
+            </div>
+            <div class="time">
+                <span id="pMinutes">00</span>
+                <p>分钟</p>
+            </div>
+            <div class="time">
+                <span id="pSeconds">00</span>
+                <p>秒</p>
+            </div>
+        </div>
+
+        <input type="date" id="startDate" />
+        <input type="date" id="targetDate" />
+        <input type="file" id="bgUpload" accept="image/*" />
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
