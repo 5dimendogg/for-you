@@ -13,7 +13,7 @@ const pHours = document.getElementById("pHours");
 const pMinutes = document.getElementById("pMinutes");
 const pSeconds = document.getElementById("pSeconds");
 // 标题文字
-const countdownTitle = document.getElementById("targetDate");
+const eventTitle = document.getElementById("eventTitle");
 const passedTitle = document.getElementById("passedTitle");
 // 输入框
 const targetDateInput = document.getElementById("targetDate"); // 倒计时日期
@@ -89,15 +89,18 @@ bgInput.addEventListener("change", () => {
 function updateCountdown() {
     if (!targetTime) return;
 
-    const nowDate = new Date();
-    const isBirthday = 
-        nowDate.getMonth() === 1 &&
-        nowDate.getDate() === 7;
+    const now = new Date();
+    const diff = targetTime - now.getTime();
 
-    if (isBirthday) {
+    if (now.getMonth() === 1 && now.getDate() === 7) {
         eventTitle.textContent = "宝宝生日快乐 🎂❤️";
     } else {
         eventTitle.textContent = "距离宝宝20岁还有";
+    }
+
+    if (diff <= 0) {
+        flip(cDays, 0); flip(cHours, 0); flip(cMinutes, 0); flip(cSeconds, 0);
+        return;
     }
 
     const d = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -125,7 +128,7 @@ function updatePassedTime() {
 
     const d = Math.floor(diff / (1000 * 60 * 60 * 24));
     const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / 1000 * 60) % 60);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
     const s = Math.floor((diff / 1000) % 60);
 
     passedTitle.textContent = "我们在一起已经";
@@ -155,6 +158,7 @@ setInterval(() => {
     updateCountdown();
     updatePassedTime();
 }, 1000);
+
 
 
 
