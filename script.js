@@ -97,9 +97,7 @@ function updateCountdown() {
     if (isBirthday) {
         eventTitle.textContent = "宝宝生日快乐 🎂❤️";
     } else {
-        eventTitle.textContent = value
-            ? `距离${value}还有`
-            : "距离重要的日子还有";
+        eventTitle.textContent = "距离宝宝20岁还有";
     }
 
     const d = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -157,6 +155,7 @@ setInterval(() => {
     updateCountdown();
     updatePassedTime();
 }, 1000);
+
 
 
 
